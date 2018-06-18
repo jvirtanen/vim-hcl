@@ -25,7 +25,7 @@ syn region hclComment start=/\/\*/ end=/\*\// contains=hclTodo
 
 syn keyword hclTodo TODO FIXME XXX DEBUG NOTE contained
 
-hi def link hclString        Constant
+hi def link hclString        String
 hi def link hclNumber        Constant
 hi def link hclBoolean       Boolean
 hi def link hclInterpolation PreProc
