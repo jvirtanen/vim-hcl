@@ -1,8 +1,13 @@
 # hcl.vim
 
-Syntax highlighting for [HashiCorp Configuration Language (HCL)][HCL].
+Syntax highlighting for [HashiCorp Configuration Language (HCL)][HCL] used by
+[Consul][], [Nomad][], [Terraform][], and [Vault][].
 
   [HCL]: https://github.com/hashicorp/hcl
+  [Consul]: https://www.consul.io/
+  [Nomad]: https://www.nomadproject.io/
+  [Terraform]: https://www.terraform.io/
+  [Vault]: https://www.vaultproject.io/
 
 ## Installation
 
