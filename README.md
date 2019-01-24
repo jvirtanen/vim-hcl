@@ -11,13 +11,12 @@ Syntax highlighting for [HashiCorp Configuration Language (HCL)][HCL] used by
 
 ## Installation
 
-Install using [pathogen.vim][]:
+Install using Vim's built-in package support:
 ```
-cd ~/.vim/bundle
+mkdir -p ~/.vim/pack/jvirtanen/start
+cd ~/.vim/pack/jvirtanen/start
 git clone git://github.com/jvirtanen/vim-hcl.git
 ```
-
-  [pathogen.vim]: https://github.com/tpope/vim-pathogen
 
 ## License
 
