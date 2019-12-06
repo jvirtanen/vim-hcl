@@ -13,6 +13,8 @@ syn match hclVariable /\<[A-Za-z0-9_.\[\]]\+\>/ contained
 syn match hclParenthesis /(/
 syn match hclFunction    /\w\+(/ contains=hclParenthesis
 
+syn keyword hclKeyword for contained
+
 syn region hclString start=/"/ end=/"/ contains=hclInterpolation
 syn region hclString start=/<<-\?\z([A-Z]\+\)/ end=/^\s*\z1/ contains=hclInterpolation
 
@@ -28,12 +30,13 @@ syn region hclComment start=/\/\// end=/$/    contains=hclTodo
 syn region hclComment start=/\#/   end=/$/    contains=hclTodo
 syn region hclComment start=/\/\*/ end=/\*\// contains=hclTodo
 
-syn match hclAttribute /=.*$/ contains=hclString,hclVariable,hclNumber,hclConstant,hclFunction,hclComment
+syn match hclAttribute /=.*$/ contains=hclString,hclVariable,hclNumber,hclConstant,hclFunction,hclKeyword,hclComment
 
 syn keyword hclTodo TODO FIXME XXX DEBUG NOTE contained
 
 hi def link hclVariable      PreProc
 hi def link hclFunction      Function
+hi def link hclKeyword       Keyword
 hi def link hclString        String
 hi def link hclNumber        Number
 hi def link hclConstant      Constant
