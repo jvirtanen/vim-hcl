@@ -15,8 +15,16 @@ syn match hclFunction    /\w\+(/ contains=hclParenthesis
 
 syn keyword hclKeyword for contained
 
-syn region hclString start=/"/ end=/"/ contains=hclInterpolation
-syn region hclString start=/<<-\?\z([A-Z]\+\)/ end=/^\s*\z1/ contains=hclInterpolation
+syn region hclString start=/"/ end=/"/ contains=hclEscape,hclInterpolation
+syn region hclString start=/<<-\?\z([A-Z]\+\)/ end=/^\s*\z1/ contains=hclEscape,hclInterpolation
+
+syn match hclEscape /\\n/
+syn match hclEscape /\\r/
+syn match hclEscape /\\t/
+syn match hclEscape /\\"/
+syn match hclEscape /\\\\/
+syn match hclEscape /\\u\x\{4\}/
+syn match hclEscape /\\u\x\{8\}/
 
 syn match hclNumber /\<\d\+\([eE][+-]\?\d\+\)\?\>/
 syn match hclNumber /\<\d*\.\d\+\([eE][+-]\?\d\+\)\?\>/
@@ -38,6 +46,7 @@ hi def link hclVariable      PreProc
 hi def link hclFunction      Function
 hi def link hclKeyword       Keyword
 hi def link hclString        String
+hi def link hclEscape        Special
 hi def link hclNumber        Number
 hi def link hclConstant      Constant
 hi def link hclInterpolation PreProc
