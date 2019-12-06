@@ -15,7 +15,7 @@ syn match hclNumber /\<\d\+\([eE][+-]\?\d\+\)\?\>/
 syn match hclNumber /\<\d*\.\d\+\([eE][+-]\?\d\+\)\?\>/
 syn match hclNumber /\<0[xX]\x\+\>/
 
-syn keyword hclBoolean true false
+syn keyword hclConstant true false null
 
 syn region hclInterpolation start=/\${/ end=/}/ contained contains=hclInterpolation
 
@@ -27,7 +27,7 @@ syn keyword hclTodo TODO FIXME XXX DEBUG NOTE contained
 
 hi def link hclString        String
 hi def link hclNumber        Number
-hi def link hclBoolean       Boolean
+hi def link hclConstant      Constant
 hi def link hclInterpolation PreProc
 hi def link hclComment       Comment
 hi def link hclTodo          Todo
