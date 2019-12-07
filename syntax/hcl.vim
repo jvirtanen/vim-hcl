@@ -8,6 +8,8 @@ if exists('b:current_syntax')
   finish
 end
 
+syn match hclVariable /\<[A-Za-z0-9_.\[\]]\+\>/ contained
+
 syn region hclString start=/"/ end=/"/ contains=hclInterpolation
 syn region hclString start=/<<-\?\z([A-Z]\+\)/ end=/^\s*\z1/ contains=hclInterpolation
 
@@ -23,8 +25,11 @@ syn region hclComment start=/\/\// end=/$/    contains=hclTodo
 syn region hclComment start=/\#/   end=/$/    contains=hclTodo
 syn region hclComment start=/\/\*/ end=/\*\// contains=hclTodo
 
+syn match hclAttribute /=.*$/ contains=hclString,hclVariable,hclNumber,hclConstant,hclComment
+
 syn keyword hclTodo TODO FIXME XXX DEBUG NOTE contained
 
+hi def link hclVariable      PreProc
 hi def link hclString        String
 hi def link hclNumber        Number
 hi def link hclConstant      Constant
