@@ -8,12 +8,12 @@ if exists('b:current_syntax')
   finish
 end
 
-syn match hclVariable /\<[A-Za-z0-9_.\[\]*]\+\>/ contained
+syn match hclVariable /\<[A-Za-z0-9_.\[\]*]\+\>/
 
 syn match hclParenthesis /(/
 syn match hclFunction    /\w\+(/ contains=hclParenthesis
 
-syn keyword hclKeyword for contained
+syn keyword hclKeyword for
 
 syn region hclString start=/"/ end=/"/ contains=hclEscape,hclInterpolation
 syn region hclString start=/<<-\?\z([A-Z]\+\)/ end=/^\s*\z1/ contains=hclEscape,hclInterpolation
@@ -38,7 +38,11 @@ syn region hclComment start=/\/\// end=/$/    contains=hclTodo
 syn region hclComment start=/\#/   end=/$/    contains=hclTodo
 syn region hclComment start=/\/\*/ end=/\*\// contains=hclTodo
 
-syn match hclAttribute /=.*$/ contains=hclString,hclVariable,hclNumber,hclConstant,hclFunction,hclKeyword,hclComment
+syn match hclAttributeName /\w\+/ contained
+syn match hclAttribute     /^.*=/ contains=hclAttributeName
+
+syn match hclBlockName /\w\+/ contained
+syn match hclBlock     /^[^=]\+{/ contains=hclBlockName,hclString
 
 syn keyword hclTodo TODO FIXME XXX DEBUG NOTE contained
 
