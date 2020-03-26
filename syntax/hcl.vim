@@ -39,7 +39,7 @@ syn region hclComment start=/\#/   end=/$/    contains=hclTodo
 syn region hclComment start=/\/\*/ end=/\*\// contains=hclTodo
 
 syn match hclAttributeName /\w\+/ contained
-syn match hclAttribute     /^.*=/ contains=hclAttributeName,hclComment
+syn match hclAttribute     /^.*=/ contains=hclAttributeName,hclComment,hclString
 
 syn match hclBlockName /\w\+/ contained
 syn match hclBlock     /^[^=]\+{/ contains=hclBlockName,hclString
