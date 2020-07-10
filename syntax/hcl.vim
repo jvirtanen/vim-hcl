@@ -32,7 +32,7 @@ syn match hclNumber /\<0[xX]\x\+\>/
 
 syn keyword hclConstant true false null
 
-syn region hclInterpolation start=/\${/ end=/}/ contained contains=hclInterpolation
+syn region hclInterpolation start=/\${/ end=/}/ contained contains=hclString,hclInterpolation,hclAttribute,hclAttributeName
 
 syn region hclComment start=/\/\// end=/$/    contains=hclTodo
 syn region hclComment start=/\#/   end=/$/    contains=hclTodo
