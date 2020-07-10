@@ -32,7 +32,7 @@ syn match hclNumber /\<0[xX]\x\+\>/
 
 syn keyword hclConstant true false null
 
-syn region hclInterpolation start=/\${/ end=/}/ contained contains=hclInterpolation
+syn region hclInterpolation start=/\${/ end=/}/ contained contains=hclString,hclInterpolation,hclAttribute,hclAttributeName
 
 syn region hclComment start=/\/\// end=/$/    contains=hclTodo
 syn region hclComment start=/\#/   end=/$/    contains=hclTodo
@@ -41,11 +41,13 @@ syn region hclComment start=/\/\*/ end=/\*\// contains=hclTodo
 syn match hclAttributeName /\w\+/ contained
 syn match hclAttribute     /^.*=/ contains=hclAttributeName,hclComment,hclString
 
-syn match hclBlockName /\w\+/ contained
-syn match hclBlock     /^[^=]\+{/ contains=hclBlockName,hclString
+syn match hclBlockName /\<[A-Za-z0-9_.\[\]*]\+\>/ nextgroup=hclString,hclBlock
+syn region hclBlock start="{" end="}" fold transparent contains=hclBlock,hclVariable,hclString,hclInterpolation,hclComment
+syn region hclBlock start="\[" end="\]" fold transparent contains=hclBlock,hclVariable,hclString,hclInterpolation,hclComment
 
 syn keyword hclTodo TODO FIXME XXX DEBUG NOTE contained
 
+hi def link hclBlockName     Statement
 hi def link hclVariable      PreProc
 hi def link hclFunction      Function
 hi def link hclKeyword       Keyword
@@ -57,4 +59,11 @@ hi def link hclInterpolation PreProc
 hi def link hclComment       Comment
 hi def link hclTodo          Todo
 
+syn sync fromstart
+
 let b:current_syntax = 'hcl'
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set smarttab
