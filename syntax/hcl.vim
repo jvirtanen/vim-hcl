@@ -42,7 +42,7 @@ syn match hclAttributeName /\w\+/ contained
 syn match hclAttribute     /^.*=/ contains=hclAttributeName,hclComment,hclString
 
 syn match hclBlockName /\w\+/ contained
-syn match hclBlock     /^[^=]\+{/ contains=hclBlockName,hclString
+syn match hclBlock     /^[^=]\+{/ contains=hclBlockName,hclComment,hclString
 
 syn keyword hclTodo TODO FIXME XXX DEBUG NOTE contained
 
