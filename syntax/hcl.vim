@@ -56,5 +56,6 @@ hi def link hclConstant      Constant
 hi def link hclInterpolation PreProc
 hi def link hclComment       Comment
 hi def link hclTodo          Todo
+hi def link hclBlockName     Structure
 
 let b:current_syntax = 'hcl'
