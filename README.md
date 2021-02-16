@@ -21,7 +21,9 @@ git clone git://github.com/jvirtanen/vim-hcl.git
 
 ## License
 
-Copyright 2018 Jussi Virtanen.
+Copyright 2018 Jussi Virtanen and [contributors][].
+
+  [contributors]: https://github.com/jvirtanen/vim-hcl/graphs/contributors
 
 Distributed under the same terms as Vim itself. See `:help license` for
 details.
