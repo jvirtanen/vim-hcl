@@ -26,8 +26,8 @@ syn match hclEscape /\\\\/
 syn match hclEscape /\\u\x\{4\}/
 syn match hclEscape /\\u\x\{8\}/
 
-syn match hclNumber /\<\d\+\([eE][+-]\?\d\+\)\?\>/
-syn match hclNumber /\<\d*\.\d\+\([eE][+-]\?\d\+\)\?\>/
+syn match hclNumber /\<\d\+\%([eE][+-]\?\d\+\)\?\>/
+syn match hclNumber /\<\d*\.\d\+\%([eE][+-]\?\d\+\)\?\>/
 syn match hclNumber /\<0[xX]\x\+\>/
 
 syn keyword hclConstant true false null
