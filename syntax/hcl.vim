@@ -13,7 +13,7 @@ syn match hclVariable /\<[A-Za-z0-9_.\[\]*]\+\>/
 syn match hclParenthesis /(/
 syn match hclFunction    /\w\+(/ contains=hclParenthesis
 
-syn keyword hclKeyword for
+syn keyword hclKeyword for in if
 
 syn region hclString start=/"/ end=/"/ contains=hclEscape,hclInterpolation
 syn region hclString start=/<<-\?\z([A-Z]\+\)/ end=/^\s*\z1/ contains=hclEscape,hclInterpolation
