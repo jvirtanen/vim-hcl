@@ -8,7 +8,7 @@ if exists('b:current_syntax')
   finish
 end
 
-syn match hclVariable /\<[A-Za-z0-9_.\[\]*]\+\>/
+syn match hclVariable /\<[A-Za-z0-9_.\[\]*-]\+\>/
 
 syn match hclParenthesis /(/
 syn match hclFunction    /\w\+(/ contains=hclParenthesis
